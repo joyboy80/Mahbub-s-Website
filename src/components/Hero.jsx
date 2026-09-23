@@ -155,18 +155,18 @@ export default function Hero({ onOpenEmailModal }) {
           <div className="lg:col-span-5 flex justify-center items-center relative px-2 sm:px-0">
             
             {/* Ambient Multi-Layer Glow */}
-            <div className="absolute w-60 h-60 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-cyan-500/25 via-purple-600/25 to-pink-500/20 blur-3xl -z-10 animate-pulse-glow" />
+            <div className="absolute w-44 h-44 sm:w-56 sm:h-56 rounded-full bg-gradient-to-tr from-cyan-500/25 via-purple-600/25 to-pink-500/20 blur-3xl -z-10 animate-pulse-glow" />
 
             {/* 3D Interactive Tilt Container */}
-            <Interactive3DTilt maxTilt={14} className="max-w-[300px] sm:max-w-[360px] w-full group">
+            <Interactive3DTilt maxTilt={14} className="max-w-[210px] sm:max-w-[250px] lg:max-w-[260px] w-full group">
               {/* Outer Neon Cyber Border */}
-              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-cyan-500 via-purple-500 to-emerald-500 opacity-60 group-hover:opacity-100 blur-md transition duration-500" />
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-500 via-purple-500 to-emerald-500 opacity-60 group-hover:opacity-100 blur-md transition duration-500" />
               
               {/* Main Card Shell */}
-              <div className="relative rounded-3xl glass-card overflow-hidden border border-white/20 p-2.5 sm:p-3 shadow-2xl backdrop-blur-2xl">
+              <div className="relative rounded-2xl glass-card overflow-hidden border border-white/20 p-2 sm:p-2.5 shadow-2xl backdrop-blur-2xl">
                 
                 {/* Clean Photo Element */}
-                <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden bg-slate-950">
+                <div className="relative w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-950">
                   <img
                     src={personalInfo.avatarUrl}
                     alt="Mahbubur Rahman (Joy)"

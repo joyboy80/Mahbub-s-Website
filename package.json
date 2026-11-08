@@ -8,6 +8,10 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "allowScripts": {
+    "esbuild": true,
+    "esbuild@0.25.12": true
+  },
   "dependencies": {
     "lucide-react": "^1.16.0",
     "react": "^18.3.1",

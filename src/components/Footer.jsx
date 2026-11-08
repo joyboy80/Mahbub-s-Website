@@ -1,138 +1,53 @@
 import React from 'react';
-import { ArrowUp, Mail, Terminal, Send } from 'lucide-react';
+import { ArrowUp, Mail, Heart } from 'lucide-react';
 import { Github, Linkedin, Facebook, Instagram } from './SocialIcons';
-import { personalInfo, contactDetails } from '../data/portfolioData';
+import { Magnetic } from './ui';
+import { contactDetails, personalInfo } from '../data/portfolioData';
 
-const socialIcons = {
-  Github,
-  Linkedin,
-  Facebook,
-  Instagram
-};
+const socialIcons = { Github, Linkedin, Facebook, Instagram };
 
 export default function Footer({ onOpenEmailModal }) {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="relative border-t border-white/10 bg-slate-950/80 backdrop-blur-xl pt-16 pb-12 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 pb-12 border-b border-white/10">
-          
-          {/* Brand Info (5 cols) */}
-          <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-500 to-purple-600 p-[1px]">
-                <div className="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center font-heading font-extrabold text-xs text-cyan-400">
-                  MR
-                </div>
-              </div>
-              <span className="font-heading font-bold text-lg text-white">
-                Mahbubur Rahman <span className="text-cyan-400 font-sans text-sm">(Joy)</span>
-              </span>
-            </div>
-
-            <p className="text-xs sm:text-sm text-slate-400 max-w-sm leading-relaxed font-light">
-              Undergraduate in Computer Science & Engineering at Chittagong University of Engineering & Technology (CUET). Building software systems, learning applied machine learning, and exploring NLP research.
-            </p>
-
-            <div className="flex items-center gap-2 text-xs font-mono text-cyan-300">
-              <Terminal className="w-3.5 h-3.5 shrink-0" />
-              <span className="truncate">Build → Learn → Research → Experiment → Grow</span>
-            </div>
-          </div>
-
-          {/* Quick Section Links (4 cols) */}
-          <div className="md:col-span-4">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-slate-300 mb-4">
-              Navigation
-            </h4>
-            <div className="grid grid-cols-2 gap-2 text-xs font-mono text-slate-400">
-              <a href="#hero" className="hover:text-cyan-300 transition-colors">Home</a>
-              <a href="#about" className="hover:text-cyan-300 transition-colors">About</a>
-              <a href="#education" className="hover:text-cyan-300 transition-colors">Education</a>
-              <a href="#experience" className="hover:text-cyan-300 transition-colors">Experience</a>
-              <a href="#skills" className="hover:text-cyan-300 transition-colors">Skills</a>
-              <a href="#research" className="hover:text-cyan-300 transition-colors">Research</a>
-              <a href="#projects" className="hover:text-cyan-300 transition-colors">Projects</a>
-              <a href="#activities" className="hover:text-cyan-300 transition-colors">Activities</a>
-              <a href="#contact" className="hover:text-cyan-300 transition-colors">Contact</a>
-              <button 
-                onClick={onOpenEmailModal} 
-                className="text-left text-purple-400 hover:text-purple-300 transition-colors"
-              >
-                Send Email
-              </button>
-            </div>
-          </div>
-
-          {/* Back to top & Connect (3 cols) */}
-          <div className="md:col-span-3 flex flex-col justify-between items-start md:items-end gap-6">
-            <div className="space-y-3 w-full md:w-auto">
-              <h4 className="text-xs font-mono uppercase tracking-wider text-slate-300 md:text-right">
-                Connect & Channels
-              </h4>
-              <div className="flex flex-wrap items-center gap-2">
-                {contactDetails.socials.map((soc, idx) => {
-                  const Icon = socialIcons[soc.icon] || Github;
-                  return (
-                    <a
-                      key={idx}
-                      href={soc.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="p-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/20 text-slate-400 hover:text-cyan-300 border border-white/5 transition-all"
-                      title={soc.name}
-                      aria-label={soc.name}
-                    >
-                      <Icon className="w-4 h-4" />
-                    </a>
-                  );
-                })}
-                <button
-                  onClick={onOpenEmailModal}
-                  className="p-2 rounded-xl bg-purple-500/15 hover:bg-purple-500/25 text-purple-400 hover:text-purple-300 border border-purple-500/30 transition-all"
-                  title="Direct Email"
-                  aria-label="Direct Email"
-                >
-                  <Mail className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <button
-                onClick={onOpenEmailModal}
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 text-purple-300 border border-purple-500/30 text-xs font-mono hover:bg-purple-500/30 transition-all"
-              >
-                <Mail className="w-3.5 h-3.5 text-purple-400" />
-                <span>Quick Email</span>
-              </button>
-
-              <button
-                onClick={scrollToTop}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 hover:text-cyan-300 border border-white/10 text-xs font-mono transition-all group"
-              >
-                <span>Top</span>
-                <ArrowUp className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Bottom copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+    <footer className="relative z-10 mt-10 overflow-hidden border-t border-white/[0.06]">
+      <div className="mx-auto max-w-6xl px-5 pt-20 sm:px-8">
+        <div className="flex flex-col items-start justify-between gap-10 md:flex-row md:items-end">
           <div>
-            © {new Date().getFullYear()} Mahbubur Rahman (Joy). All rights reserved.
+            <p className="text-sm text-zinc-500">Got an idea?</p>
+            <h3 className="mt-2 font-display text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              Let's make it <span className="text-gradient">happen.</span>
+            </h3>
           </div>
-          <div className="flex items-center gap-1 text-slate-400">
-            <span>Engineered with React, Vite & Tailwind CSS</span>
-          </div>
+          <Magnetic>
+            <button onClick={onOpenEmailModal} className="btn-primary px-8 py-4 text-base">
+              <span className="btn-shine" />
+              <Mail className="h-5 w-5" /> Get in touch
+            </button>
+          </Magnetic>
         </div>
 
+        <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-white/[0.06] py-8 sm:flex-row">
+          <p className="flex flex-wrap items-center justify-center gap-1.5 text-center text-sm text-zinc-500">
+            © {new Date().getFullYear()} {personalInfo.fullName} ({personalInfo.nickname}) · Built with
+            <Heart className="h-3.5 w-3.5 fill-pink-400 text-pink-400" /> in Chattogram
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {contactDetails.socials.map((s) => {
+              const Icon = socialIcons[s.icon];
+              return (
+                <a key={s.name} href={s.url} target="_blank" rel="noreferrer" className="btn-icon h-10 w-10" aria-label={s.name}>
+                  <Icon className="h-4 w-4" />
+                </a>
+              );
+            })}
+            <a href="#hero" className="btn-icon ml-2 h-10 w-10 bg-white/10" aria-label="Back to top">
+              <ArrowUp className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div aria-hidden className="pointer-events-none select-none text-center font-display text-[22vw] font-bold leading-[0.75] tracking-tighter text-white/[0.03]">
+        JOY
       </div>
     </footer>
   );

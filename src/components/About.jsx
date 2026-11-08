@@ -1,147 +1,145 @@
 import React from 'react';
-import { 
-  GraduationCap, 
-  MapPin, 
-  Building2, 
-  Sparkles, 
-  Terminal, 
-  Cpu, 
-  Code, 
-  Flame 
-} from 'lucide-react';
+import { GraduationCap, MapPin, Cpu, Code2, Flame, Building2, Award, CalendarCheck } from 'lucide-react';
+import { SectionHeader, Reveal, SpotlightCard } from './ui';
 import { personalInfo } from '../data/portfolioData';
 
+const pillars = [
+  {
+    icon: Cpu,
+    title: 'Applied ML & Data Systems',
+    sub: 'ML Engineering Intern @ Flyrank AI',
+    text: 'Hands-on work with machine learning models, NLP integration and data pipelines on modern stacks.',
+    color: 'from-cyan-400/25 to-cyan-400/0 text-cyan-200',
+  },
+  {
+    icon: Code2,
+    title: 'Real-World Software',
+    sub: 'Transit · Biometrics · Campus tools',
+    text: 'Creator of Safar, CUET Lost & Found Box, a biometric attendance tracker and the EduSync CLI.',
+    color: 'from-emerald-400/25 to-emerald-400/0 text-emerald-200',
+  },
+  {
+    icon: Flame,
+    title: 'Campus Leadership',
+    sub: 'CUETPS · Shuvosangho · IEEE CS',
+    text: 'Assistant Publication Secretary and Work & Planning Secretary across major student organizations.',
+    color: 'from-pink-400/25 to-pink-400/0 text-pink-200',
+  },
+];
+
 export default function About() {
+  const uni = personalInfo.university;
   return (
-    <section id="about" className="py-16 sm:py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="flex flex-col items-start mb-10 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-xs font-mono mb-3">
-            <span className="text-cyan-400 font-bold">01 //</span>
-            <span>BACKGROUND & PHILOSOPHY</span>
-          </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
-            About <span className="text-gradient-cyan">Mahbubur Rahman (Joy)</span>
-          </h2>
-          <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl font-light">
-            An ambitious undergraduate combining rigorous software engineering foundations with applied machine learning research and active system building.
-          </p>
+    <section id="about" className="relative py-20 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          index="01"
+          eyebrow="About me"
+          title="Engineering meets"
+          highlight="intelligence."
+          subtitle="An undergraduate combining solid software engineering foundations with applied machine learning research and hands-on system building."
+        />
+
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-6">
+          {/* Story */}
+          <Reveal className="md:col-span-4">
+            <SpotlightCard className="h-full p-5 sm:p-9">
+              <div className="space-y-5 text-[15px] leading-relaxed text-zinc-300 sm:text-base">
+                <p>
+                  I'm a Computer Science & Engineering undergraduate at{' '}
+                  <span className="font-semibold text-white">Chittagong University of Engineering & Technology (CUET)</span>, currently in{' '}
+                  <span className="text-violet-200">{uni.levelTerm}</span> with a CGPA of{' '}
+                  <span className="font-semibold text-emerald-300">{uni.cgpa}</span>, and I'm expected to graduate in{' '}
+                  <span className="font-semibold text-gradient">{uni.expectedGrad}</span>.
+                </p>
+                <p>
+                  I don't see development and machine learning as separate worlds. I enjoy building full-stack platforms from the ground up —
+                  React frontends, Node.js or Spring Boot backends — while exploring{' '}
+                  <span className="text-white">Machine Learning</span>, <span className="text-white">Deep Learning</span> and{' '}
+                  <span className="text-white">NLP</span>.
+                </p>
+                <p>
+                  At <span className="text-cyan-200">Flyrank AI</span> I'm getting real industry experience with ML evaluation and NLP workflows.
+                  Outside code, I'm into photography with the CUET Photographic Society and community planning with Bashundhara Shuvosangho.
+                </p>
+              </div>
+              <div className="mt-8 flex flex-wrap gap-2">
+                <span className="chip"><MapPin className="h-3.5 w-3.5 text-pink-300" /> Hometown: Subarnachar, Noakhali</span>
+                <span className="chip"><Building2 className="h-3.5 w-3.5 text-violet-300" /> Campus: CUET, Chattogram</span>
+              </div>
+            </SpotlightCard>
+          </Reveal>
+
+          {/* Graduation card */}
+          <Reveal delay={100} className="md:col-span-2">
+            <SpotlightCard className="flex h-full flex-col justify-between bg-gradient-to-br from-violet-600/20 via-indigo-600/10 to-transparent p-7">
+              <div className="flex items-center justify-between">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-white ring-1 ring-white/15">
+                  <GraduationCap className="h-6 w-6" />
+                </span>
+                <span className="chip border-violet-300/20 bg-violet-400/10 text-violet-100">B.Sc. in CSE</span>
+              </div>
+              <div className="mt-10">
+                <p className="text-sm text-zinc-400">Expected graduation</p>
+                <p className="font-display text-7xl font-bold leading-none tracking-tight text-gradient">{uni.expectedGrad}</p>
+                <div className="mt-6">
+                  <div className="mb-2 flex justify-between text-xs text-zinc-400">
+                    <span>{uni.levelTerm}</span>
+                    <span>~75% done</span>
+                  </div>
+                  <div className="h-2 overflow-hidden rounded-full bg-white/10">
+                    <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-violet-500 to-cyan-300 shadow-[0_0_14px_rgba(34,211,238,0.6)]" />
+                  </div>
+                </div>
+              </div>
+            </SpotlightCard>
+          </Reveal>
+
+          {/* Academic */}
+          <Reveal delay={50} className="md:col-span-2">
+            <SpotlightCard className="h-full p-5 sm:p-7">
+              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br from-amber-400/25 to-amber-400/0 text-amber-200 ring-1 ring-white/10">
+                <Award className="h-6 w-6" />
+              </span>
+              <h3 className="mt-5 font-display text-lg font-semibold text-white">Academic Excellence</h3>
+              <p className="mt-1 text-xs font-mono text-amber-200/80">CUET 3.58 · HSC 5.00 · SSC 5.00</p>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+                A consistent record through Noakhali Zilla School, Notre Dame College and CUET.
+              </p>
+            </SpotlightCard>
+          </Reveal>
+
+          {pillars.map((p, i) => (
+            <Reveal key={p.title} delay={100 + i * 60} className="md:col-span-2">
+              <SpotlightCard className="h-full p-5 sm:p-7">
+                <span className={`grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-br ring-1 ring-white/10 ${p.color}`}>
+                  <p.icon className="h-6 w-6" />
+                </span>
+                <h3 className="mt-5 font-display text-lg font-semibold text-white">{p.title}</h3>
+                <p className="mt-1 text-xs font-mono text-zinc-500">{p.sub}</p>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-400">{p.text}</p>
+              </SpotlightCard>
+            </Reveal>
+          )).slice(0, 2)}
+
+          <Reveal delay={260} className="md:col-span-6">
+            <SpotlightCard className="flex flex-col items-start gap-5 p-7 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-4">
+                <span className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br ring-1 ring-white/10 ${pillars[2].color}`}>
+                  <Flame className="h-6 w-6" />
+                </span>
+                <div>
+                  <h3 className="font-display text-lg font-semibold text-white">{pillars[2].title}</h3>
+                  <p className="text-sm text-zinc-400">{pillars[2].text}</p>
+                </div>
+              </div>
+              <a href="#activities" className="btn-ghost shrink-0 py-2.5 text-[13px]">
+                <CalendarCheck className="h-4 w-4 text-pink-300" /> See activities
+              </a>
+            </SpotlightCard>
+          </Reveal>
         </div>
-
-        {/* Content Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          
-          {/* Narrative Paragraphs (7 cols) */}
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-4 sm:space-y-6">
-            <div className="space-y-4 sm:space-y-5 text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed font-light">
-              <div className="p-4 sm:p-6 rounded-2xl glass-card border border-white/10 hover:border-cyan-500/30 transition-all duration-300">
-                <p>
-                  I am a Computer Science & Engineering undergraduate at{' '}
-                  <strong className="text-white font-semibold">Chittagong University of Engineering & Technology (CUET)</strong>, 
-                  currently in <span className="text-cyan-300 font-mono">Level 3, Term 2</span> with a cumulative CGPA of{' '}
-                  <span className="text-emerald-300 font-mono font-bold">3.58 / 4.00</span>.
-                </p>
-              </div>
-
-              <div className="p-6 rounded-2xl glass-card border border-white/10 hover:border-purple-500/30 transition-all duration-300">
-                <p>
-                  Rather than viewing development and machine learning as separate domains, I treat them as unified disciplines. I enjoy engineering full-stack platforms from the ground up—architecting intuitive frontends in ReactJS and robust backends in Node.js or Spring Boot—while exploring applied <strong className="text-purple-300 font-medium">Machine Learning</strong>, <strong className="text-purple-300 font-medium">Deep Learning</strong>, and <strong className="text-purple-300 font-medium">Natural Language Processing</strong>.
-                </p>
-              </div>
-
-              <div className="p-6 rounded-2xl glass-card border border-white/10 hover:border-sky-500/30 transition-all duration-300">
-                <p>
-                  As an ML Engineer Intern at <strong className="text-cyan-300 font-medium">Flyrank AI</strong>, I gain firsthand industry experience optimizing ML evaluation pipelines and integrating NLP algorithms. When not writing code, I actively dedicate my energy to co-curricular leadership, visual arts with the CUET Photographic Society, and community planning with Bashundhara Shuvosangho.
-                </p>
-              </div>
-            </div>
-
-            {/* Quick Hometown & Identity strip */}
-            <div className="p-4 rounded-xl bg-slate-900/60 border border-white/10 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-slate-300">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-cyan-400" />
-                <span>Hometown: <strong className="text-white">Subarnachar, Noakhali</strong></span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-purple-400" />
-                <span>Campus: <strong className="text-white">CUET, Chattogram</strong></span>
-              </div>
-            </div>
-          </div>
-
-          {/* Quick Pillar Cards (5 cols) */}
-          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-            
-            {/* Pillar 1: Academic Rigor */}
-            <div className="p-5 rounded-2xl glass-card border border-white/10 hover:border-cyan-400/40 transition-all duration-300 group">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 group-hover:scale-110 transition-transform">
-                  <GraduationCap className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-heading font-bold text-white text-base">Academic Excellence</h3>
-                  <p className="text-xs font-mono text-cyan-300 mt-0.5">CUET (3.58) • NDC (5.00) • NZS (5.00)</p>
-                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                    Consistent top academic trajectory through Noakhali Zilla School, Notre Dame College, and CUET Computer Science & Engineering.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Pillar 2: Industry Immersion */}
-            <div className="p-5 rounded-2xl glass-card border border-white/10 hover:border-purple-400/40 transition-all duration-300 group">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 group-hover:scale-110 transition-transform">
-                  <Cpu className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-heading font-bold text-white text-base">Applied ML & Data Systems</h3>
-                  <p className="text-xs font-mono text-purple-300 mt-0.5">ML Engineering Intern @ Flyrank AI</p>
-                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                    Practical work on machine learning models, NLP algorithm integration, and workflow optimization on modern stacks.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Pillar 3: Practical Systems Building */}
-            <div className="p-5 rounded-2xl glass-card border border-white/10 hover:border-emerald-400/40 transition-all duration-300 group">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 group-hover:scale-110 transition-transform">
-                  <Code className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-heading font-bold text-white text-base">Real-World Software</h3>
-                  <p className="text-xs font-mono text-emerald-300 mt-0.5">Transit • Biometrics • Campus Solutions</p>
-                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                    Creator of Safar (bus tracker), CUET Lost & Found Box, Biometric Attendance, and EduSync CLI utility.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Pillar 4: Leadership & Community */}
-            <div className="p-5 rounded-2xl glass-card border border-white/10 hover:border-pink-400/40 transition-all duration-300 group">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-pink-500/10 border border-pink-500/20 text-pink-400 group-hover:scale-110 transition-transform">
-                  <Flame className="w-6 h-6" />
-                </div>
-                <div>
-                  <h3 className="font-heading font-bold text-white text-base">Campus Leadership</h3>
-                  <p className="text-xs font-mono text-pink-300 mt-0.5">CUETPS • Shuvosangho • IEEE CS</p>
-                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-                    Serving as Assistant Publication Secretary and Work & Planning Secretary across major student organizations.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
       </div>
     </section>
   );

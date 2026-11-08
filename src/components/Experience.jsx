@@ -1,124 +1,68 @@
 import React from 'react';
-import { Briefcase, ExternalLink, CheckCircle2, Cpu, Sparkles, Building, Layers } from 'lucide-react';
+import { Briefcase, ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { SectionHeader, Reveal, SpotlightCard } from './ui';
 import { experienceList } from '../data/portfolioData';
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-16 sm:py-24 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="flex flex-col items-start mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono mb-3">
-            <span className="text-purple-400 font-bold">02 //</span>
-            <span>INDUSTRY IMMERSION</span>
-          </div>
-          <h2 className="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
-            Professional <span className="text-gradient-purple">Experience & Internship</span>
-          </h2>
-          <p className="mt-3 text-slate-400 text-sm sm:text-base max-w-2xl font-light">
-            Hands-on machine learning engineering and NLP integration work currently performed in the industry.
-          </p>
-        </div>
+    <section id="experience" className="relative py-20 sm:py-24 lg:py-32">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+        <SectionHeader
+          index="02"
+          eyebrow="Experience"
+          title="Where I'm"
+          highlight="building."
+          subtitle="Industry work that sharpens how I think about models, data and production systems."
+        />
 
-        {/* Experience Showcase Card */}
-        <div className="space-y-8">
-          {experienceList.map((exp, idx) => (
-            <div 
-              key={idx}
-              className="relative group rounded-3xl p-[1px] bg-gradient-to-r from-cyan-500/40 via-purple-500/40 to-blue-500/40 hover:from-cyan-400 hover:via-purple-400 hover:to-blue-400 transition-all duration-500 shadow-2xl"
-            >
-              <div className="rounded-[23px] bg-slate-950/90 backdrop-blur-xl p-6 sm:p-10 border border-white/10">
-                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-6 border-b border-white/10">
-                  
-                  {/* Left: Role, Company & Mode */}
-                  <div className="flex items-start sm:items-center gap-4">
-                    <div className="p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
-                      <Cpu className="w-8 h-8" />
-                    </div>
-                    <div>
-                      <div className="flex flex-wrap items-center gap-3">
-                        <h3 className="font-heading font-bold text-xl sm:text-2xl text-white">
-                          {exp.position}
-                        </h3>
-                        <span className="px-3 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                          {exp.period}
-                        </span>
-                      </div>
-                      
-                      <div className="flex flex-wrap items-center gap-2 mt-1.5">
-                        <a
-                          href={exp.website}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="font-medium text-cyan-400 hover:text-cyan-300 text-base flex items-center gap-1.5 transition-colors"
-                        >
-                          <Building className="w-4 h-4 text-cyan-400" />
-                          <span>{exp.company}</span>
-                          <ExternalLink className="w-3.5 h-3.5 opacity-70" />
-                        </a>
-                        <span className="text-slate-600">•</span>
-                        <span className="text-xs font-mono text-slate-400">
-                          {exp.employmentType}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right: Visit Website Button */}
+        <div className="space-y-5">
+          {experienceList.map((exp, i) => (
+            <Reveal key={exp.company} delay={i * 80}>
+              <SpotlightCard className="p-5 sm:p-10">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-[240px_1fr]">
                   <div>
+                    <div className="flex items-center gap-3">
+                      <span className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-cyan-400/30 to-violet-500/20 ring-1 ring-white/10">
+                        <Briefcase className="h-6 w-6 text-cyan-100" />
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-400/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-emerald-300 ring-1 ring-emerald-400/20">
+                        <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" />
+                        {exp.period}
+                      </span>
+                    </div>
                     <a
                       href={exp.website}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] hover:bg-cyan-500/15 text-slate-200 hover:text-cyan-300 text-xs font-mono border border-white/10 hover:border-cyan-500/40 transition-all duration-300"
+                      className="group mt-5 inline-flex items-center gap-1 font-display text-2xl font-semibold text-white hover:text-cyan-200"
                     >
-                      <span>flyrank.ai</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      {exp.company}
+                      <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </a>
+                    <p className="mt-1 text-sm text-zinc-500">{exp.employmentType}</p>
+                  </div>
+
+                  <div>
+                    <h3 className="font-display text-xl font-semibold text-gradient sm:text-2xl">{exp.position}</h3>
+                    <ul className="mt-5 space-y-3">
+                      {exp.responsibilities.map((r) => (
+                        <li key={r} className="flex gap-3 text-[15px] leading-relaxed text-zinc-300">
+                          <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-violet-300" />
+                          {r}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 flex flex-wrap gap-2">
+                      {exp.techStack.map((t) => (
+                        <span key={t} className="chip transition-colors hover:border-cyan-300/40 hover:text-white">{t}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-
-                {/* Verified Core Responsibilities from CV */}
-                <div className="pt-6">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-4 flex items-center gap-2">
-                    <Sparkles className="w-3.5 h-3.5 text-purple-400" />
-                    <span>Verified Scope & Engineering Contributions</span>
-                  </h4>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {exp.responsibilities.map((resp, rIdx) => (
-                      <div
-                        key={rIdx}
-                        className="p-4 rounded-xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/20 transition-all duration-200 flex items-start gap-3"
-                      >
-                        <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
-                        <p className="text-slate-300 text-sm leading-relaxed">
-                          {resp}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Associated Tech Badges */}
-                  <div className="mt-6 flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-mono text-slate-400 mr-2">Focus Stack:</span>
-                    {exp.techStack.map((tech, tIdx) => (
-                      <span
-                        key={tIdx}
-                        className="px-3 py-1 rounded-lg bg-cyan-500/5 border border-cyan-500/20 text-cyan-300 text-xs font-mono"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
+              </SpotlightCard>
+            </Reveal>
           ))}
         </div>
-
       </div>
     </section>
   );

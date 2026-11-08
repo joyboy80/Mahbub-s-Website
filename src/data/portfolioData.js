@@ -5,7 +5,7 @@ export const personalInfo = {
   shortBio: "Building software, exploring intelligent systems, and learning through research. Constantly pushing boundaries from full-stack web platforms to machine learning and natural language processing pipelines.",
   motto: "Build → Learn → Research → Experiment → Grow",
   aboutParagraphs: [
-    "I am an undergraduate student in the Department of Computer Science & Engineering at Chittagong University of Engineering & Technology (CUET), currently in Level 3, Term 2 with a CGPA of 3.58 / 4.00.",
+    "I am an undergraduate student in the Department of Computer Science & Engineering at Chittagong University of Engineering & Technology (CUET), currently in Level 3, Term 2 with a CGPA of 3.58 / 4.00, and expected to graduate in 2027.",
     "My technical journey bridges the gap between robust software engineering and applied artificial intelligence. I enjoy architecting end-to-end applications—from reactive user interfaces to reliable backend systems—while delving deeply into Machine Learning, Deep Learning, and Natural Language Processing.",
     "Currently, I am expanding my practical knowledge as a Machine Learning Engineering Intern at Flyrank AI, where I work on machine learning models and NLP-driven data workflows. Alongside academics and engineering, I actively contribute to student leadership and community initiatives across tech, photography, and cultural clubs."
   ],
@@ -16,6 +16,7 @@ export const personalInfo = {
     levelTerm: "Level 3, Term 2",
     cgpa: "3.58 / 4.00",
     expectedGrad: "2027",
+    expectedGradLabel: "Expected Graduation: 2027",
     website: "https://cuet.ac.bd/",
     location: "Chattogram, Bangladesh"
   },
@@ -31,8 +32,9 @@ export const educationList = [
     institution: "Chittagong University of Engineering & Technology (CUET)",
     shortName: "CUET",
     degree: "B.Sc. in Computer Science & Engineering",
-    period: "Currently Pursuing (Level 3, Term 2)",
+    period: "Currently Pursuing · Level 3, Term 2",
     graduation: "Expected Graduation: 2027",
+    gradYear: "2027",
     result: "CGPA: 3.58 / 4.00",
     location: "Chattogram, Bangladesh",
     website: "https://cuet.ac.bd/",
@@ -176,7 +178,7 @@ export const researchInterests = {
       title: "Data-Driven Systems & Automation",
       icon: "Workflow",
       tag: "System Design",
-      description: "Bridging the bridge between algorithmic intelligence and reliable software pipelines with optimized data ingestion and processing."
+      description: "Bridging the gap between algorithmic intelligence and reliable software pipelines with optimized data ingestion and processing."
     },
     {
       title: "Applied AI for Public & Campus Utilities",
@@ -190,6 +192,8 @@ export const researchInterests = {
 export const projectsList = [
   {
     id: "safar",
+    // Optional photo: drop a file at public/projects/safar.jpg and set image: "/projects/safar.jpg" (falls back to the built-in illustration)
+    image: null,
     title: "Safar: Smart Bus Tracker & Management System",
     isFlagship: true,
     tagline: "Intelligent University Transit & Fleet Scheduling System",
@@ -206,6 +210,8 @@ export const projectsList = [
   },
   {
     id: "cuet-lost-found",
+    // Optional photo: drop a file at public/projects/lost-found.jpg and set image: "/projects/lost-found.jpg" (falls back to the built-in illustration)
+    image: null,
     title: "CUET Lost & Found Box",
     isFlagship: false,
     tagline: "Campus-Wide Retrieval & Item Reporting Platform",
@@ -222,6 +228,8 @@ export const projectsList = [
   },
   {
     id: "biometrics-attendance",
+    // Optional photo: drop a file at public/projects/attendance.jpg and set image: "/projects/attendance.jpg" (falls back to the built-in illustration)
+    image: null,
     title: "Smart Biometrics Attendance Tracker",
     isFlagship: false,
     tagline: "Full-Stack Automated Biometric Attendance Platform",
@@ -238,6 +246,8 @@ export const projectsList = [
   },
   {
     id: "edusync",
+    // Optional photo: drop a file at public/projects/edusync.jpg and set image: "/projects/edusync.jpg" (falls back to the built-in illustration)
+    image: null,
     title: "EduSync",
     isFlagship: false,
     tagline: "CLI Administrative Utility & Automation Script",
